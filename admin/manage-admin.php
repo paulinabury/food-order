@@ -21,6 +21,21 @@
             echo $_SESSION['update']; //Displaing Session update Message
             unset($_SESSION['update']); //Removing Session update Message
         }
+
+        if (isset($_SESSION['user-not-found'])) {
+            echo $_SESSION['user-not-found']; //Displaing Session update password Message
+            unset($_SESSION['user-not-found']); //Removing Session update password Message
+        }
+
+        if (isset($_SESSION['pwd-not-match'])) {
+            echo $_SESSION['pwd-not-match']; //Displaing Session not match password Message
+            unset($_SESSION['pwd-not-match']); //Removing Session not match password Message
+        }
+
+        if (isset($_SESSION['change-pwd'])) {
+            echo $_SESSION['change-pwd']; //Displaing Session not match password Message
+            unset($_SESSION['change-pwd']); //Removing Session not match password Message
+        }
         ?>
 
         <br /><br /><br />
@@ -69,7 +84,7 @@
                             <td><?php echo $full_name; ?></td>
                             <td><?php echo $username; ?></td>
                             <td>
-                                <a href="" class="btn-primary">Change Password</a>
+                                <a href="<?php echo SITEURL; ?>admin/update-password.php?id=<?php echo $id ?>" class="btn-primary">Change Password</a>
                                 <a href="<?php echo SITEURL; ?>admin/update-admin.php?id=<?php echo $id ?>" class="btn-secondary">Update Admin</a>
                                 <a href="<?php echo SITEURL; ?>admin/delete-admin.php?id=<?php echo $id ?>" class="btn-danger">Delete Admin</a>
                             </td>
