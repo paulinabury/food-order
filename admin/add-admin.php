@@ -64,13 +64,13 @@ if (isset($_POST['submit'])) {
     if ($res == TRUE) {
         //Data inserted
         //Create a Session Variable to display message
-        $_SESSION['add'] = "Admin Added Successfully";
+        $_SESSION['add'] = "<div class='success'>Admin added successfully.</div>";
         //Redirect page to Manage Admin
         header("location:" . SITEURL . 'admin/manage-admin.php');
     } else {
         //Failed to insert the data
         //Create a Session Variable to display message
-        $_SESSION['add'] = "Failed to add Admin";
+        $_SESSION['add'] = "<div class='error'>Failed to add Admin.</div>";
         //Redirect page to Add Admin
         header("location:" . SITEURL . 'admin/add-admin.php');
     }

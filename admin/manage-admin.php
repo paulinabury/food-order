@@ -8,8 +8,13 @@
 
         <?php
         if (isset($_SESSION['add'])) {
-            echo $_SESSION['add']; //Displaing Session Message
-            unset($_SESSION['add']); //Removing Session Message
+            echo $_SESSION['add']; //Displaing Session Add Message
+            unset($_SESSION['add']); //Removing Session Add Message
+        }
+
+        if (isset($_SESSION['delete'])) {
+            echo $_SESSION['delete']; //Displaing Session Delete Message
+            unset($_SESSION['delete']); //Removing Session Delete Message
         }
         ?>
 
@@ -55,12 +60,12 @@
             ?>
 
                         <tr>
-                            <td><?php echo $sn++; ?></td>
+                            <td><?php echo $sn++; ?>. </td>
                             <td><?php echo $full_name; ?></td>
                             <td><?php echo $username; ?></td>
                             <td>
                                 <a href="#" class="btn-secondary">Update Admin</a>
-                                <a href="#" class="btn-danger">Delete Admin</a>
+                                <a href="<?php echo SITEURL; ?>admin/delete-admin.php?id=<?php echo $id ?>" class="btn-danger">Delete Admin</a>
                             </td>
                         </tr>
 
