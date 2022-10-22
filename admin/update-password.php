@@ -68,7 +68,8 @@ if (isset($_POST['submit'])) {
         $count = mysqli_num_rows($res);
         if ($count == 1) {
             //user exists and password can be changed 
-            //Check whether the new password and confir password match or not
+
+    //3. check whether the new password and confirm password match or not
             if ($new_password == $confirm_password) {
                 //update the password
                 $sql2 = "UPDATE tbl_admin SET 
@@ -79,6 +80,7 @@ if (isset($_POST['submit'])) {
                 $res2 = mysqli_query($conn, $sql2);
 
                 if ($res2 == TRUE) {
+    //4. change password if all above is true
                     //display success message 
                     $_SESSION['change-pwd'] = "<div class='success'> Password changed. </div>";
                     //Redirect to manage-admin page
@@ -103,12 +105,7 @@ if (isset($_POST['submit'])) {
             header("location:" . SITEURL . 'admin/manage-admin.php');
         }
     }
-
-    //3. check whether the new password and confirm password match or not
-
-    //4. change password if all above is true
 }
 ?>
-
 
 <?php include('partials/footer.php') ?>
