@@ -7,8 +7,17 @@
 
         <br /><br />
 
+        <!--Message to display when query executed successfully after adding category to db -->
+        <?php
+        if (isset($_SESSION['add-category'])) {
+            echo $_SESSION['add-category'];
+            unset($_SESSION['add-category']);
+        }
+        ?>
+        <br><br>
+
         <!-- Button to add Admin -->
-        <a href="#" class="btn-primary">Add Category </a>
+        <a href="<?php echo SITEURL; ?>admin/add-category.php" class="btn-primary">Add Category </a>
         <br /><br /><br />
 
         <table class="tbl-full">
