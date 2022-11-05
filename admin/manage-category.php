@@ -27,39 +27,84 @@
         <table class="tbl-full">
             <tr>
                 <th>S.N.</th>
-                <th>Full Name</th>
-                <th>User Name</th>
+                <th>Title</th>
+                <th>Image</th>
+                <th>Featured</th>
+                <th>Active</th>
                 <th>Actions</th>
             </tr>
-            <tr>
-                <td>1.</td>
-                <td>Paulina Bury</td>
-                <td>burabury</td>
-                <td>
-                    <a href="#" class="btn-secondary">Update Admin</a>
-                    <a href="#" class="btn-danger">Delete Admin</a>
-                </td>
-            </tr>
 
-            <tr>
-                <td>2.</td>
-                <td>Paulina Bury</td>
-                <td>burabury</td>
-                <td>
-                    <a href="#" class="btn-secondary">Update Admin</a>
-                    <a href="#" class="btn-danger">Delete Admin</a>
-                </td>
-            </tr>
+            <?php
 
-            <tr>
-                <td>3.</td>
-                <td>Paulina Bury</td>
-                <td>burabury</td>
-                <td>
-                    <a href="#" class="btn-secondary">Update Admin</a>
-                    <a href="#" class="btn-danger">Delete Admin</a>
-                </td>
-            </tr>
+            //query to all categories from database
+            $sql = "SELECT * FROM tbl_category";
+
+            //execute query
+            $res = mysqli_query($conn, $sql);
+
+            //count rows
+            $count = mysqli_num_rows($res);
+            $sn = 1;
+            //check whether we hava data in database
+            if ($count > 0) {
+                //we have data in database
+                //get the data from database and display
+                while ($row = mysqli_fetch_assoc($res)) {
+                    $id = $row['id'];
+                    $title = $row['title'];
+                    $image_name = $row['image_name'];
+                    $featured = $row['featured'];
+                    $active = $row['active'];
+
+            ?>
+
+                    <tr>
+                        <td><?php echo $sn++; ?>.</td>
+                        <td><?php echo $title ?></td>
+
+
+                        <td>
+                            <?php
+                                //check whether image name is avaliable
+                                if($image_name != "") {
+                                    //display the image
+                                    ?>
+
+                                        <img src="<?php echo SITEURL; ?>images/category/<?php echo $image_name ?>" width="120px">
+
+                                    <?php
+                                } else {
+                                    //display the message
+                                    echo "<div class='error'/>Image not found.</div>";
+                                }
+                            ?>
+                        </td>
+
+                        <td><?php echo $featured ?></td>
+                        <td><?php echo $active ?></td>
+                        <td>
+                            <a href="#" class="btn-secondary">Update Category</a>
+                            <a href="#" class="btn-danger">Delete Category</a>
+                        </td>
+                    </tr>
+
+                <?php
+                }
+            } else {
+                //we dont have data in database
+                //We will display the message inside table 
+                ?>
+
+                <tr>
+                    <td colspan="6">
+                        <div class="error">Category Not Found.</div>
+                    </td>
+                </tr>
+
+            <?php
+            }
+            ?>
+
         </table>
 
     </div>
