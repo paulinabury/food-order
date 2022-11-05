@@ -17,6 +17,10 @@
             echo $_SESSION['login']; //Displaing Session login Message
             unset($_SESSION['login']); //Removing Session login Message
         }
+        if(isset($_SESSION['no-login-message'])) {
+            echo $_SESSION['no-login-message'];
+            unset($_SESSION['no-login-message']);
+        }
         ?>
         </br></br>
 
