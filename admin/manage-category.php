@@ -17,6 +17,15 @@
             echo $_SESSION['upload'];
             unset($_SESSION['upload']);
         }
+        if (isset($_SESSION['remove'])) {
+            echo $_SESSION['remove'];
+            unset($_SESSION['remove']);
+        }
+        if (isset($_SESSION['delete'])) {
+            echo $_SESSION['delete'];
+            unset($_SESSION['delete']);
+        }
+
         ?>
         <br><br>
 
@@ -65,18 +74,18 @@
 
                         <td>
                             <?php
-                                //check whether image name is avaliable
-                                if($image_name != "") {
-                                    //display the image
-                                    ?>
+                            //check whether image name is avaliable
+                            if ($image_name != "") {
+                                //display the image
+                            ?>
 
-                                        <img src="<?php echo SITEURL; ?>images/category/<?php echo $image_name ?>" width="120px">
+                                <img src="<?php echo SITEURL; ?>images/category/<?php echo $image_name ?>" width="100px">
 
-                                    <?php
-                                } else {
-                                    //display the message
-                                    echo "<div class='error'/>Image not found.</div>";
-                                }
+                            <?php
+                            } else {
+                                //display the message
+                                echo "<div class='error'/>Image not found.</div>";
+                            }
                             ?>
                         </td>
 
@@ -84,7 +93,7 @@
                         <td><?php echo $active ?></td>
                         <td>
                             <a href="#" class="btn-secondary">Update Category</a>
-                            <a href="#" class="btn-danger">Delete Category</a>
+                            <a href="<?php echo SITEURL; ?>admin/delete-category.php?id=<?php echo $id; ?>&image_name=<?php echo $image_name; ?>" class="btn-danger">Delete Category</a>
                         </td>
                     </tr>
 
