@@ -31,6 +31,7 @@
             <a href="<?php echo SITEURL; ?>admin/add-category.php" class="btn-secondary">Add Category </a>
         </div>
 
+        
         <div class="clearfix"></div>
     </div>
 </div>
