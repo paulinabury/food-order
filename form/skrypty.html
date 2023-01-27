@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Przykładowe skrypty w JS</title>
+
+    <script type="text/javascript">
+        var x = 2;
+        var y = 5;
+        console.log(Math.min(x, y));
+        console.log(Math.max(x, y));
+        confirm("Wartość większa z wartości " + x + " lub " + y +" to " + Math.max(x, y));
+        confirm("Wartość mniejsza z wartości " + x + " lub " + y +" to " + Math.min(x, y));
+        alert("Uwaga");
+
+        function changeTextInParagraph() {
+            document.getElementById("demo").innerHTML = "Hello World!";
+        }
+
+        function add() {
+            document.getElementById("sum").innerHTML = (5 + 6);
+        }
+
+        var kolor = prompt("Podaj kolor: 1-zielony lub 2-czerwony");
+        var k = (kolor == 1) ? "jeden" : "dwa";
+        document.getElementById("kolor").innerHTML(k);
+    </script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="topnav">
+        <a class="active" href="index.html">Home</a>
+        <a href="#">JavaScript</a>
+    </div>
+    <div class="content">
+        <p id="demo">My first java script.</p>
+        <button type="button" onclick="changeTextInParagraph()">Click me!</button>
+        <br>
+        <br>
+
+        <p id="sum">???</p>
+        <button type="button" onclick="add()">Add 5 to 6</button>
+        <br><br>
+        <p>Print this page</p>
+        <button onclick="window.print()">Print this page</button>
+
+        <p id="kolor"></p>
+    </div>
+    
+</body>
+</html>
